@@ -38,20 +38,3 @@ You can prep it for upload using:
     $  docker save example-algorithm | gzip -c > example-algorithm.tar.gz
 
 
-### ⚙️ Example evaluation method ⚙️
-
-An example evaluation method container is provided via: ./example-evaulation. It does not, currently, do any sensible evaluation.
-
-You can study it and run it by calling:
-
-    $ cd ./example-evaluation
-    $ docker build --tag example-evaluation . && \
-        rm -f test/output/* && \
-        docker run --rm \
-        --volume $(pwd)/test/input:/input \
-        --volume $(pwd)/test/output:/output \
-        example-evaluation
-
-You can prep it for upload using:
-
-    $  docker save example-evaluation | gzip -c > example-evaluation.tar.gz
