@@ -6,15 +6,15 @@ ENV PYTHONUNBUFFERED 1
 RUN adduser --system --group user
 USER user
 
-WORKDIR /tmp
+WORKDIR /opt/app
 
-COPY --chown=user:user requirements.txt /tmp
+COPY --chown=user:user requirements.txt /opt/app
 
 RUN python -m pip install \
     --no-color \
     --requirement requirements.txt
 
-COPY --chown=user:user helper.py /tmp
-COPY --chown=user:user inference.py /tmp
+COPY --chown=user:user helper.py /opt/app
+COPY --chown=user:user inference.py /opt/app
 
 ENTRYPOINT ["python", "inference.py"]
